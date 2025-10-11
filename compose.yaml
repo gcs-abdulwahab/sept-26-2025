@@ -1,0 +1,13 @@
+services:
+  typescript-app:
+    build:
+      context: .
+    image: typescript-app:latest
+    container_name: typescript-app
+    restart: unless-stopped
+    init: true
+    ports:
+      - "4173:4173"  # Expose Vite preview port
+    # env_file: ./.env  # Uncomment if .env file exists
+    # No external dependencies detected in README or source
+    # No persistent volumes required for this frontend app
