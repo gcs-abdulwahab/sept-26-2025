@@ -7,7 +7,9 @@ const ALLOWED_COLORS = [
     "orange",
     "pink",
     "brown",
-    "amber",
+    "purple",
+    "yellow",
+    
     "cyan",
 ];
 
@@ -15,7 +17,7 @@ const randomFromList = (list: string[]) => list[Math.floor(Math.random() * list.
 
 const ColorComponent = () => {
     const [colorInput, setColorInput] = useState<string>("");
-    const [bg, setBg] = useState<string>("white");
+    const [bg, setBg] = useState<string>("gray");
 
     const applyColor = (c: string) => {
         const normalized = c.trim().toLowerCase();
@@ -29,6 +31,8 @@ const ColorComponent = () => {
             <label style={{ display: "block", marginBottom: 8 }}>
                 Enter color (allowed: {ALLOWED_COLORS.join(", ")}):
                 <input
+                    
+                    className="border"
                     value={colorInput}
                     onChange={(e) => {
                         setColorInput(e.target.value);

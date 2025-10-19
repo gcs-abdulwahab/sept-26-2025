@@ -1,12 +1,5 @@
 @import "tailwindcss";
 
 button {
-	background-color: #3b82f6; /* Tailwind bg-blue-500 */
-	color: #fff; /* Tailwind text-white */
-	font-weight: bold; /* Tailwind font-bold */
-	padding-top: 0.5rem; /* Tailwind py-2 */
-	padding-bottom: 0.5rem;
-	padding-left: 1rem; /* Tailwind px-4 */
-	padding-right: 1rem;
-	border-radius: 0.25rem; /* Tailwind rounded */
+	@apply bg-blue-500 text-white font-bold py-2 px-4 rounded;
 }
