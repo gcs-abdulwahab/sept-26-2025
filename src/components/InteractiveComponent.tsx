@@ -1,7 +1,5 @@
-import type { JSX } from "react";
-
 const InteractiveComponent = () => {
-	const my_avg = (x, y) => {
+	const my_avg = (x: number, y: number) => {
 		const avg = (x + y) / 2;
 		console.log(" Average ", avg);
 		return avg;
@@ -14,7 +12,7 @@ const InteractiveComponent = () => {
 		const ch = chr.toLowerCase();
 		return vowel_list.includes(ch);
 	};
-	const is_consonant = (ch): boolean => {
+	const is_consonant = (ch: string): boolean => {
 		return !is_vowel(ch);
 	};
 
@@ -26,12 +24,12 @@ const InteractiveComponent = () => {
 		console.log(" Function 1 called ");
 	};
 
-	const function2 = (x) => {
+	const function2 = (x: number) => {
 		console.log(x * x);
 		return x * x;
 	};
 
-	const function3 = (x) => {
+	const function3 = () => {
 		return (
 			<>
 				<h1> THis is from function 3</h1>
@@ -39,10 +37,13 @@ const InteractiveComponent = () => {
 		);
 	};
 
+	// reference functions during development to avoid unused-vars lint errors
+	console.debug({ my_avg, cube, is_vowel, is_consonant, isUpper, function1, function2, function3 });
+
 	return (
 		<div>
 			InteractiveComponent Table of 5 upto 10 Console.log on Button Click
-			{function3(5)}
+			{function3()}
 			<button className="bg-red-400" onClick={function1}>
 				
 				Function 1

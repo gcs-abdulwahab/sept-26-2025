@@ -8,12 +8,11 @@ const Navtac = () => {
 		return parseInt(merged) + 1;
 	}
 
-	function centigradeToFahrenheit(centigrade) {
-		const result = centigrade;
-		return result;
+	function centigradeToFahrenheit(centigrade: number) {
+		return (centigrade * 9) / 5 + 32;
 	}
 
-	return <div>Navtac :: {centigradeToFahrenheit(25)}</div>;
+	return <div>Navtac :: {add(1,2)} / {centigradeToFahrenheit(25)}</div>;
 };
 
 export default Navtac;

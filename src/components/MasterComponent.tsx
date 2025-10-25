@@ -81,6 +81,9 @@ const MasterComponent = () => {
 		console.log(count);
 	};
 
+	// expose utility functions to the console during development
+	console.debug({ isVowel, countVowel, printTriangle1, printTriangle2, printTriangle3, findMax, doesExist, countNumber });
+
 	return (
 		<div>
 			<>

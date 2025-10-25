@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const C1Component = () => {
 	const [username, setUsername] = useState<string>("ABC");
@@ -21,9 +21,9 @@ const C1Component = () => {
 			/>
 			<h2>{username}</h2>
 			
-			{/* <button className="border p-2 m-2 bg-red-300" onClick={changeUser}>
+			<button className="border p-2 m-2 bg-red-300" onClick={changeUser}>
 				changeName
-			</button> */}
+			</button>
 		</>
 	);
 };

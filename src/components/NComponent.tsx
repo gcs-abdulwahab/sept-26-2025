@@ -17,7 +17,7 @@ function halfCheck(a: number, b: number, c: number): string {
 const NComponent = ({ x, y, z }: NComponentProps) => {
 	return (
 		<>
-			<div>{halfCheck(0.1, 0.2, 0.6)}</div>
+			<div>{halfCheck(x, y, z)}</div>
 		</>
 	);
 };

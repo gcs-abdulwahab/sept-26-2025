@@ -20,7 +20,7 @@ const SampleComponent = ({ n, m, total }: SampleComponentProps) => {
     }
 
 
-	return <div>SampleComponent {isHalf(-0.1, -0.2, -0.6) ? 'is half' : 'is not half'} </div>;
+    return <div>SampleComponent {isHalf(n, m, total) ? 'is half' : 'is not half'} </div>;
 };
 
 export default SampleComponent;
