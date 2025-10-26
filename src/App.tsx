@@ -1,7 +1,8 @@
 import { useState } from "react";
 import "./App.css";
-import ProfileCard from "./components/ProfileCard";
+import PlayListComponent from "./components/PlayListComponent";
 import type { ClientType } from "./types/ClientType";
+import type { VideoLectureType } from "./types/VideoLectureType";
 const clientsArray: ClientType[] = [
 	{
 		id: 1,
@@ -51,12 +52,79 @@ function App() {
 		setClients((prev) => prev.filter((c) => c.id !== id));	
 	}
 
+	const handleIncreaseViews = (id: number) => {
+		setClients((prev) =>
+			prev.map((client) =>
+				client.id === id ? { ...client, views: client.views + 10000 } : client
+			)
+		);
+	}
+
+	const handleParent = (name) => {
+		console.log('handle print',name)
+		
+	}
+
+	const list1: VideoLectureType[] = [
+		{
+			id: 1,
+			title: "Introduction to TypeScript",
+			duration: 45,
+			videoUrl: "https://example.com/videos/typescript-intro",
+		},
+		{
+			id: 2,
+			title: "Advanced React Patterns",
+			duration: 60,
+			videoUrl: "https://example.com/videos/react-advanced",
+		},
+		{
+			id: 3,
+			title: "State Management with Redux",
+			duration: 50,
+			videoUrl: "https://example.com/videos/redux-state-management",
+		},
+	];
+const list2: VideoLectureType[] = [
+		{
+			id: 11,
+			title: "ChangedIntroduction to TypeScript",
+			duration: 45,
+			videoUrl: "https://example.com/videos/typescript-intro",
+		},
+		{
+			id: 12,
+			title: "Changed Advanced React Patterns",
+			duration: 60,
+			videoUrl: "https://example.com/videos/react-advanced",
+		},
+		{
+			id: 13,
+			title: " CHanged State Management with Redux",
+			duration: 50,
+			videoUrl: "https://example.com/videos/redux-state-management",
+		},
+	];
+
+
 
 	return (
 		<div className=" flex justify-around gap-4 flex-wrap">
-			{clients.map((c) => (
-				<div>
-					<ProfileCard key={c.id} client={c} />
+			
+			<PlayListComponent data={ list1} currentlyPlayed = {list1[2].id}  name="my worst list  1"/>
+			<hr />
+			<PlayListComponent data={ list2} currentlyPlayed = {list2[1].id}   name="my fav list" />
+
+			
+			
+			{/* {clients.map((c) => (
+				<div key={c.id}>
+					
+					<ProfileCard
+						onNameClick={handleParent}
+						client={c}
+						increaseViews={handleIncreaseViews}
+					/>
 					<button
 						className="bg-blue-500 text-white px-4 py-2 mt-2 rounded hover:bg-blue-600"
 						onClick={() => removeClient(c.id)}
@@ -64,9 +132,7 @@ function App() {
 						Remove Client
 					</button>
 				</div>
-			))}
-
-			
+			))} */}
 		</div>
 	);
 }

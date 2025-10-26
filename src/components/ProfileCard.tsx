@@ -2,9 +2,11 @@
 import type { ClientType } from "../types/ClientType";
 interface ProfileCardProps {
 	client: ClientType;
+    increaseViews: (id: number) => void;
+    onNameClick?: (string) => void;
 }
-const ProfileCard = ({ client }: ProfileCardProps) => {
-	const { name, role, description, imgSrc, views, comments } = client;
+const ProfileCard = ({ client, increaseViews, onNameClick }: ProfileCardProps) => {
+	const { name, role, description, imgSrc, views, comments ,id} = client;
 
 
     // Convert number to string e.g 2500 would be 2.5K and 3500000 would be 3.5M
@@ -32,7 +34,7 @@ const ProfileCard = ({ client }: ProfileCardProps) => {
 				<p className="text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-1 text-left">
 					ROLE:{role}
 				</p>
-				<h2 className="text-xl font-bold text-gray-900 dark:text-white mb-2 text-left">
+				<h2 className="text-xl font-bold text-gray-900 dark:text-white mb-2 text-left" onClick={()=>  onNameClick(name)}>
 					{name}
 				</h2>
 				<p className="text-gray-700 dark:text-gray-300 text-base mb-4 text-left">
@@ -56,12 +58,12 @@ const ProfileCard = ({ client }: ProfileCardProps) => {
 								strokeLinecap="round"
 								strokeLinejoin="round"
 								strokeWidth="2"
-								d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+								d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"    
 							></path>
 						</svg>
 					</a>
 					<div className="flex items-center text-sm text-gray-500 dark:text-gray-400 space-x-4">
-                        <span onClick={() => { console.log(id)}} className="bg-red-400 flex items-center">
+						<span onClick={() => increaseViews(id)} className="bg-red-400 flex items-center cursor-pointer">
 						<svg
 								className="w-4 h-4 mr-1"
 								fill="none"
